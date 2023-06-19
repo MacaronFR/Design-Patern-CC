@@ -5,7 +5,7 @@ class Test
 	static void Main(string[] args)
 	{
 		Coucou test = new Coucou();
-		Observer1 o = new Observer1("Denis");
+		Observer1 o = new Observer1();
 		test.Attach(o);
 		test.CoucouMessage = "Bonjour";
 		(new Run()).Test2(test);
@@ -21,7 +21,7 @@ class Run
 {
 	public void Test2(Coucou test)
 	{
-		Observer1 o = new Observer1("Mathieu");
+		Observer2 o = new Observer2();
 		test.Attach(o);
 		test.CoucouMessage = "Hello";
 	}
@@ -53,11 +53,16 @@ class Coucou : Subject<String>
 
 class Observer1 : Observer<String>
 {
-
-	public Observer1(String name) : base(name) { }
-	
 	public override void Update(String value)
 	{
-		Console.WriteLine(value + " " + Name + "!");
+		Console.WriteLine(value + " Denis !");
+	}
+}
+
+class Observer2 : Observer<String>
+{
+	public override void Update(String value)
+	{
+		Console.WriteLine(value + " Mathieu !");
 	}
 }

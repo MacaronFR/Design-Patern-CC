@@ -2,13 +2,8 @@ namespace Observer
 {
 	public abstract class Observer<T>
 	{
-		public String Name { get; set; } = "";
 		public abstract void Update(T value);
 		
-		public Observer(String name)
-		{
-			Name = name;
-		}
 	}
 
 	public abstract class Subject<T>
